@@ -25,10 +25,12 @@ export default defineConfig(({ mode }) => {
         "127.0.0.1",
         "orion-cosmogonic-sheridan.ngrok-free.dev",
 
-        // ✅ Your Replit preview domain (added)
-        "719073a0-3944-4afd-8d9e-67c1ec2683b9-00-38md9c7zkrp14.kirk.replit.dev"
+        // ✅ Allow ALL Replit preview hosts
+        /^.*\.replit\.dev$/,
+        /^.*\.kirk\.replit\.dev$/,
       ],
     },
   };
 });
+
 

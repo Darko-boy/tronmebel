@@ -132,7 +132,7 @@ export default function Index() {
 
       
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section id="home" className="scroll-mt-24 relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Brand Green Background Gradient (warmer & slightly lighter) */}
         <div 
           className="absolute inset-0"
@@ -184,7 +184,7 @@ export default function Index() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-white/90 backdrop-blur-sm relative">
+      <section id="services" className="scroll-mt-24 py-20 bg-white/90 backdrop-blur-sm relative">
         <div className="container mx-auto px-4">
           <motion.div 
             className="text-center mb-16"
@@ -240,7 +240,7 @@ export default function Index() {
       </section>
 
       {/* Products Section */}
-      <section id="products" className="py-20 bg-white/70 backdrop-blur-sm relative">
+      <section id="products" className="scroll-mt-24 py-20 bg-white/70 backdrop-blur-sm relative">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-5xl font-black mb-6" style={{ color: '#689F38' }}>НАШИТЕ ПРОДУКТИ</h2>

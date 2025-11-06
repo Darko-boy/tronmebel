@@ -1,31 +1,28 @@
 # OS
 .DS_Store
 Thumbs.db
+.git_bkp
 
-# Node / pnpm
+# Node & pnpm
 node_modules/
 .pnpm-store/
 .pnpm-debug.log
-.npmrc
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # Build output
 dist/
 build/
 .vite/
-coverage/
 
-# Env / local
+# Environment
 .env
 .env.local
-.env.*.local
 
-# Editor / tooling
+# App tooling
 .vscode/
 .idea/
-*.log
 
-# Misc
+# MGX / plugin junk
 .mgx/
+
+# Logs
+*.log

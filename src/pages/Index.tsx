@@ -1,19 +1,32 @@
 import { useEffect, useState } from 'react';
 import Header from '@/components/ui/Header';
 import ServiceCard from '@/components/ui/ServiceCard';
+import ProjectsGallery from "@/components/ui/ProjectsGallery";
 import ProductCard from '@/components/ui/ProductCard';
 import ProjectCard from '@/components/ui/ProjectCard';
 import AboutSection from '@/components/ui/AboutSection';
 import ContactSection from '@/components/ui/ContactSection';
 import FAQSection from '@/components/ui/FAQSection';
 import Footer from '@/components/ui/Footer';
+import ProjectsCarousel from "@/components/ui/ProjectsCarousel";
 import { Button } from '@/components/ui/button';
 import { siteData } from '@/lib/data';
 import { motion } from 'framer-motion';
 
+
 export default function Index() {
   const [scrollY, setScrollY] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const modules = import.meta.glob('@/assets/projects/*.{jpg,JPG,jpeg,png}', {
+    eager: true,
+    import: 'default',
+    query: '?url',
+  }) as Record<string, string>;
+
+  const projectImages = Object.values(modules)
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
+    .map((url, i) => ({ src: url, title: `Проект ${i + 1}` }));
+
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
@@ -277,21 +290,11 @@ export default function Index() {
             <p className="text-xl mt-6 max-w-2xl mx-auto font-semibold" style={{ color: '#689F38' }}>
               Реализирани проекти, които говорят за нашето качество
             </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {siteData.projects.map((project, index) => (
-              <div
-                key={project.id}
-                className="animate-in fade-in slide-in-from-bottom-8 duration-700"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <ProjectCard {...project} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          </div>        
+   <ProjectsCarousel images={projectImages} height={520} />
+  </div>
+</section>
+
 
       {/* About / FAQ / Contact */}
       <AboutSection />
